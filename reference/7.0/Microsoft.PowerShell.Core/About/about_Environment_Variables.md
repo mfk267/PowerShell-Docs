@@ -173,11 +173,11 @@ following syntax:
 $Env:<variable-name> = "<new-value>"
 ```
 
-For example, to append `;c:\temp` to the value of the `Path` environment
+For example, to append `c:\temp;` to the value of the `Path` environment
 variable, use the following syntax:
 
 ```powershell
-$Env:path += ";c:\temp"
+$Env:path += "c:\temp;"
 ```
 
 On Linux or MacOS, the colon (`:`) in the command separates the new path from
@@ -193,7 +193,7 @@ the `Set-Item` cmdlet to append `;c:\temp` to the value of the `Path` environmen
 variable, use the following syntax:
 
 ```powershell
-Set-Item -Path Env:Path -Value ($Env:Path + ";C:\Temp")
+Set-Item -Path Env:Path -Value ($Env:Path + "C:\Temp;")
 ```
 
 In this command, the value is enclosed in parentheses so that it is
@@ -209,14 +209,14 @@ variable in every PowerShell session, add the following command to your
 PowerShell profile.
 
 ```powershell
-$Env:Path += ";C:\Temp"
+$Env:Path += "C:\Temp;"
 ```
 
 To add the command to an existing profile, such as the **CurrentUser**,
 **AllHosts** profile, type:
 
 ```powershell
-Add-Content -Path $Profile.CurrentUserAllHosts -Value '$Env:Path += ";C:\Temp"'
+Add-Content -Path $Profile.CurrentUserAllHosts -Value '$Env:Path += "C:\Temp;"'
 ```
 
 ### Environment Variables That Store Preferences
